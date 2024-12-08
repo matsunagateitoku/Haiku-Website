@@ -1,39 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Haiku</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<head>
-    <title>Haiku Database</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <script>
+      // Function to launch poet bio page with info in local memory
+      function myFunction(x) {
+        window.open('open_test.html');
+        localStorage.setItem("1", x);
+      }
 
-<body>
-<div class="header">
-  <h1>Haiku:</h1> A database of Japanese haiku
-</div>
+      // Async function to load data
+      async function getBio() {
+        try {
+          const response = await fetch('/data/Haijin1.csv');
+          const data = await response.text();
+          return data;
+        } catch (error) {
+          console.error('Error fetching the CSV file:', error);
+        }
+      }
 
-<div class="row">
-  <div class="col-3 menu">
-    <ul>
-      <li id="nav_list_1">
-        <a href="#">What is haiku?</a></li>
-      <li><a href="#">History of haiku</a></li>
-      <li><a href="#">Database of haiku</a></li>
-      <li><a href="#">Kigo: Season words</a></li>
-      <li><a href="#">Haiku texts</a></li>
-      <li><a href="#">Haiku terms</a></li>
-      <li>
-        <a href="edo_haijin_cards.html"> Edo Poets</a></li>
-      <li>
-        <a href="modern_haijin_cards.html"> Modern Poets</a></li>
-      <li><a href="#">Site Info</a></li>
-    </ul>
-  </div>
+      // Function to create cards from data
+      getBio().then((data) => {
+        const allTextLines = data.split('\n'); // Split CSV into rows
+        const kanji = [];
+        const haijin_name = [];
+        const simple_name = [];
+        const dates = [];
 
-  <div class="col-9">
-    <img src="images/haijin.jpg" alt="christy_fam_1913">
+        // Process each row to fill arrays with the poet's information
+        allTextLines.forEach((line) => {
+          const splitTextLines = line.split('\t'); // Split by tab character
+          if (splitTextLines.length === 4) { // Ensure it's a valid row
+            kanji.push(splitTextLines[0]);
+            haijin_name.push(splitTextLines[1]);
+            simple_name.push(splitTextLines[2]);
+            dates.push(splitTextLines[3]);
+          }
+        });
 
-  </div>
-</div>
+        // Create a card for each poet from the arrays
+        for (let i = 0; i < kanji.length; i++) {
+          document.getElementById("cardX").innerHTML += `
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+              <div class="card">
+                <img class="card-img-top" alt="${simple_name[i]}" src="/images/${simple_name[i]}.jpg" id="mypic" onclick="myFunction(this.alt)" />
+                <div class="card-body">
+                  <h4 class="card-title">${haijin_name[i]}</h4>
+                  <p class="card-text"><strong>Kanji:</strong> ${kanji[i]}</p>
+                  <p class="card-text"><strong>Dates:</strong> ${dates[i]}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }).catch((error) => {
+        console.error('Error processing the data:', error);
+      });
+    </script>
+  </head>
 
-</body>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <p>Haiku Database</p>
+      </div>
+      <p>Menu / <a href="index.html">Home</a> / <a href="list.html">Names</a> / <a href="fam_tree.html">Tree</a></p>
+
+      <div class="row" id="cardX"></div>
+    </div>
+  </body>
 </html>
+
