@@ -1,76 +1,39 @@
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Haiku</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THe Haiku Database</title>
+    <title>Haiku Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="header">
+  <h1>Haiku:</h1> A database of Japanese haiku
+</div>
 
+<div class="row">
+  <div class="col-3 menu">
+    <ul>
+      <li id="nav_list_1">
+        <a href="#">What is haiku</a></li>
+        <a href="#">What is haiku?</a></li>
+      <li><a href="#">History of haiku</a></li>
+      <li><a href="#">Database of haiku</a></li>
+      <li><a href="#">Kigo: Season words</a></li>
+      <li><a href="#">Haiku texts</a></li>
+      <li><a href="#">Haiku terms</a></li>
+      <li>
+        <a href="edo_haijin_cards.html"> Edo Poets</a></li>
+      <li>
+        <a href="modern_haijin_cards.html"> Modern Poets</a></li>
+      <li><a href="#">Site Info</a></li>
+    </ul>
+  </div>
 
-    <script>
-      //function to launch poet bio page with info in local memory 
-        function myFunction(x) {
-          window.open('open_test.html');
-          localStorage.setItem("1", x);
-        }
-        </script>
-  </head>
+  <div class="col-9">
+    <img src="images/haijin.jpg" alt="christy_fam_1913">
 
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <p >Haiku Database</p>
-      </div>
-        <p>Menu /<a href="index.html"> Home</a> /  <a href="list.html">Names</a> / <a href="fam_tree.html">Tree</a></p>
-      
-      
- 
-    <div class="container">
-      <div class="row"id="cardX"></div>
   </div>
 </div>
 
-<script>
-  //function to create cards
-    getBio()
-      .then(haijin => {
-        var i;
-        var names = haijin                    //this should not be needed
-        let allTextLines = names.split("\n"); // divide the CSV into rows
-        var kanji = [];
-        var haijin_name = [];
-        var simple_name = [];
-        var dates = [];
-
-        for (i = 0; i < allTextLines.length; i++) {
-            splitTextLines = allTextLines[i].toString().split(","); //divide CSR into chunks
-            kanji.push(splitTextLines[0]);                          //push each chunk to list
-            haijin_name.push(splitTextLines[1]);
-            simple_name.push(splitTextLines[2]);
-            dates.push(splitTextLines[3]);
-        }
-       
-       //create a card for each poet from lists
-        for (i = 0; i < allTextLines.length; i++) {
-            document.getElementById("cardX").innerHTML += 
-            '<div class="col-sm-6 col-md-4 col-lg-3 mt-4"><div class="card">\
-            <img class="card-img-top"alt="'+simple_name[i]+'"src="\
-            /images/'+simple_name[i]+'.jpg"name="open_test.html"id= "mypic"\
-            onclick="myFunction(this.alt)"><div class="card-block">\
-            <h4 class="text-bold">'+haijin_name[i]+'</h></br><h10 \
-            class="text-bold">'+kanji[i]+'</h></br><h10 class="text-bold">'+dates[i]+'</h></div></div></div>'   
-        }
-
-        })
-      .catch(error => {
-        console.log('error!');
-        console.error(error);
-       });
-
-   async function getBio() {
-     const response = await fetch('/data/Haijin1.csv');
-     return await response.text();
- }
-</script>
 </body>
 </html>
