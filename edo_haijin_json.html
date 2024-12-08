@@ -95,6 +95,10 @@
                 period.classList.add('period');
                 period.textContent = `Period: ${item.Period}`;
 
+                const image = document.createElement('p');
+                period.classList.add('image');
+                period.textContent = `Image: ${item.Image}`;
+
                 card.appendChild(name);
                 card.appendChild(romaji);
                 card.appendChild(english);
