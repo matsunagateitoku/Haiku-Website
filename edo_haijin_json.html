@@ -15,39 +15,54 @@
             flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
+            height: 100vh;
+            align-items: flex-start;
         }
+
+        /* Use Grid for a flexible layout */
+        #cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4-6 cards per row */
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px; /* Max width of the grid */
+        }
+
         .card {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 250px;
             padding: 15px;
             box-sizing: border-box;
         }
+
         .card h3 {
             font-size: 1.2em;
             margin-bottom: 10px;
         }
+
         .card p {
             margin: 5px 0;
             font-size: 0.9em;
             color: #555;
         }
+
         .card .name {
             font-weight: bold;
         }
+
         .card .period {
             font-style: italic;
             color: #888;
         }
+
         .card .birth-death {
             color: #333;
         }
     </style>
 </head>
 <body>
-<div id="cards-container">test text</div>
     <div id="cards-container"></div>
 
     <script src="./data/haijin.js"></script>
@@ -55,7 +70,10 @@
         // Function to generate cards based on data
         function generateCards(data) {
             const container = document.getElementById('cards-container');
-            
+
+            // Clear any previous content
+            container.innerHTML = '';
+
             data.forEach(item => {
                 const card = document.createElement('div');
                 card.classList.add('card');
@@ -87,20 +105,14 @@
             });
         }
 
-        // Call generateCards with the data loaded from the external JS file
-        generateCards(poets);
-
-    // Check if the poets data is loaded properly
-    console.log("Loading poets data...");
-    if (typeof poets !== "undefined") {
-        console.log("Poets data found:", poets);
-        generateCards(poets);
-    } else {
-        console.error("Error: Poets data not found. Make sure haijin.js is loaded correctly.");
-    }
-
-        
+        // Check if the poets data is loaded properly
+        console.log("Loading poets data...");
+        if (typeof poets !== "undefined") {
+            console.log("Poets data found:", poets);
+            generateCards(poets);
+        } else {
+            console.error("Error: Poets data not found. Make sure haijin.js is loaded correctly.");
+        }
     </script>
 </body>
 </html>
-
