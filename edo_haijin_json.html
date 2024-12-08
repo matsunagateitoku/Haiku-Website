@@ -89,6 +89,17 @@
 
         // Call generateCards with the data loaded from the external JS file
         generateCards(poets);
+
+    // Check if the poets data is loaded properly
+    console.log("Loading poets data...");
+    if (typeof poets !== "undefined") {
+        console.log("Poets data found:", poets);
+        generateCards(poets);
+    } else {
+        console.error("Error: Poets data not found. Make sure haijin.js is loaded correctly.");
+    }
+
+        
     </script>
 </body>
 </html>
