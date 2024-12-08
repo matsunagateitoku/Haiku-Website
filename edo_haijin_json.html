@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poets Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .card .name {
+            font-weight: bold;
+        }
+        .card .period {
+            font-style: italic;
+            color: #888;
+        }
+        .card .birth-death {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cards-container"></div>
+
+    <script src="data.js"></script>
+    <script>
+        // Function to generate cards based on data
+        function generateCards(data) {
+            const container = document.getElementById('cards-container');
+            
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const name = document.createElement('h3');
+                name.textContent = item.Name || item.Romaji || item.English;
+
+                const romaji = document.createElement('p');
+                romaji.textContent = `Romaji: ${item.Romaji}`;
+
+                const english = document.createElement('p');
+                english.textContent = `English: ${item.English}`;
+
+                const birthDeath = document.createElement('p');
+                birthDeath.classList.add('birth-death');
+                birthDeath.textContent = `Birth-Death: ${item['Birth-Death']}`;
+
+                const period = document.createElement('p');
+                period.classList.add('period');
+                period.textContent = `Period: ${item.Period}`;
+
+                card.appendChild(name);
+                card.appendChild(romaji);
+                card.appendChild(english);
+                card.appendChild(birthDeath);
+                card.appendChild(period);
+
+                container.appendChild(card);
+            });
+        }
+
+        // Call generateCards with the data loaded from the external JS file
+        generateCards(poets);
+    </script>
+</body>
+</html>
 
