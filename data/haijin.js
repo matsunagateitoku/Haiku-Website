@@ -36,4 +36,4 @@
     {"Name": "上島鬼貫", "Romaji": "Uejima Onitsura", "English": "Uejima Onitsura", "Birth-Death": "1661—1738", "Period": "3. Danrin"},
     {"Name": "北条団水", "Romaji": "Hōjō Dansui", "English": "Hojo Dansui", "Birth-Death": "1663—1711", "Period": "3. Danrin"},
     {"Name": "田代松意", "Romaji": "Tashiro Syōi", "English": "Tashiro Syoi", "Birth-Death": "生没年不詳", "Period": "3. Danrin"}
-  }
+  ]
