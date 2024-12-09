@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poets Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            height: 100vh;
+            align-items: flex-start;
+        }
 
+        /* Use Grid for a flexible layout */
+        #cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4-6 cards per row */
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px; /* Max width of the grid */
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .card .name {
+            font-weight: bold;
+        }
+
+        .card .period {
+            font-style: italic;
+            color: #888;
+        }
+
+        .card .birth-death {
+            color: #333;
+        }
+
+        /* Style the image inside the card */
+        .card img {
+            width: 100%;        /* Make the image take up the full width of the card */
+            height: 50%;       /* Maintain aspect ratio */
+            border-radius: 8px; /* Optional: rounded corners around the image */
+            border: 2px solid #ddd; /* Add a border around the image */
+            object-fit: cover;  /* Make sure the image covers the area without distortion */
+            margin-bottom: 15px; /* Add space below the image */
+        }
+    </style>
+</head>
+<body>
+    <div id="cards-container"></div>
+
+    <script src="./data/modern.js"></script>
+    <script>
+        // Function to generate cards based on data
+        function generateCards(data) {
+            const container = document.getElementById('cards-container');
+
+            // Clear any previous content
+            container.innerHTML = '';
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const name = document.createElement('h3');
+                name.textContent = item.Name || item.Romaji || item.English;
+
+                const romaji = document.createElement('p');
+                romaji.textContent = `Romaji: ${item.Romaji}`;
+
+                const english = document.createElement('p');
+                english.textContent = `English: ${item.English}`;
+
+                const birthDeath = document.createElement('p');
+                birthDeath.classList.add('birth-death');
+                birthDeath.textContent = `Birth-Death: ${item['Birth-Death']}`;
+
+                const period = document.createElement('p');
+                period.classList.add('period');
+                period.textContent = `Period: ${item.Period}`;
+
+                const image = document.createElement('img'); // Create an img element
+                image.src = item.Image; // Set the src to the image path from your data
+                image.alt = "Poet's Image"; // Optional: set an alt attribute for accessibility
+
+                card.appendChild(name);
+                card.appendChild(image);
+                card.appendChild(romaji);
+                card.appendChild(english);
+                card.appendChild(birthDeath);
+                card.appendChild(period);
+            
+                container.appendChild(card);
+            });
+        }
+
+        // Check if the poets data is loaded properly
+        console.log("Loading poets data...");
+        if (typeof poets !== "undefined") {
+            console.log("Poets data found:", poets);
+            generateCards(poets);
+        } else {
+            console.error("Error: Poets data not found. Make sure haijin.js is loaded correctly.");
+        }
+    </script>
+</body>
+</html>
