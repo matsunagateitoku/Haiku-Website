@@ -1,5 +1,5 @@
 const poets = [
-    {"Name": "宗鑑", "Romaji": "Yamazaki Sōkan", "English": "Yamazaki Sokan", "Birth-Death": "?-d. 1539-41", "Period": "1. Muromachi", "Image": "./images/Ihara Saikaku.jpg"},
+    {"Name": "宗鑑", "Romaji": "Yamazaki Sōkan", "English": "Yamazaki Sokan", "Birth-Death": "?-d. 1539-41", "Period": "1. Muromachi", "Image": "./images/Yamazaki Sokan.jpg},
     {"Name": "荒木田守武", "Romaji": "Arakida Moritake", "English": "Arakida Moritake", "Birth-Death": "1473 –1549", "Period": "1. Muromachi", "Image": "dummy link"},
     {"Name": "斎藤徳元", "Romaji": "Saitō Tokugin", "English": "Saito Tokugin", "Birth-Death": "1559 - 1647", "Period": "2. Teimon", "Image": "dummy link"},
     {"Name": "松永貞徳", "Romaji": "Matsunaga Teitoku", "English": "Matsunaga Teitoku", "Birth-Death": "1571-1654", "Period": "2. Teimon", "Image": "dummy link"},
@@ -24,7 +24,7 @@ const poets = [
     {"Name": "岸本調和", "Romaji": "Kishimoto Chōwa", "English": "Kishimoto Chowa", "Birth-Death": "1638 – 1715", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "大淀三千風", "Romaji": "Ōyodo Michikaze", "English": "oyodo Michikaze", "Birth-Death": "1639 – 1707", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "岡西惟中", "Romaji": "Okanishi Ichū", "English": "Okanishi Ichu", "Birth-Death": "1639 – 1711", "Period": "3. Danrin", "Image": "dummy link"},
-    {"Name": "井原西鶴", "Romaji": "Ihara Saikaku", "English": "Ihara Saikaku", "Birth-Death": "1642—1693", "Period": "3. Danrin", "Image": "dummy link"},
+    {"Name": "井原西鶴", "Romaji": "Ihara Saikaku", "English": "Ihara Saikaku", "Birth-Death": "1642—1693", "Period": "3. Danrin", "Image": "./images/Ihara Saikaku.jpg""},
     {"Name": "田中常矩", "Romaji": "Tanaka Tsunenori", "English": "Tanaka Tsunenori", "Birth-Death": "1643－1682", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "野口在色", "Romaji": "Noguchi Zaishiki", "English": "Noguchi Zaishiki", "Birth-Death": "1643－1719", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "三井秋風", "Romaji": "Mitsui Shūfū", "English": "Mitsui Shufu", "Birth-Death": "1646 -- 1717", "Period": "3. Danrin", "Image": "dummy link"},
