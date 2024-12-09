@@ -60,6 +60,16 @@
         .card .birth-death {
             color: #333;
         }
+
+        /* Style the image inside the card */
+        .card img {
+            width: 100%;        /* Make the image take up the full width of the card */
+            height: auto;       /* Maintain aspect ratio */
+            border-radius: 8px; /* Optional: rounded corners around the image */
+            border: 2px solid #ddd; /* Add a border around the image */
+            object-fit: cover;  /* Make sure the image covers the area without distortion */
+            margin-bottom: 15px; /* Add space below the image */
+        }
     </style>
 </head>
 <body>
@@ -98,8 +108,6 @@
                 const image = document.createElement('img'); // Create an img element
                 image.src = item.Image; // Set the src to the image path from your data
                 image.alt = "Poet's Image"; // Optional: set an alt attribute for accessibility
-                image.width = 20%; // Set width to 200px
-                image.height = 20%; // Set height to 200px
 
                 card.appendChild(name);
                 card.appendChild(image);
