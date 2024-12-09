@@ -28,4 +28,5 @@ const poets = [
     {"Name": "栗林一石路", "Romaji": "Kuribayashi Issekiro", "English": "Kuribayashi Issekiro", "Birth-Death": "1894-1961", "Period": "", "Image": "./images/Kuribayashi Issekiro.jpg"},
     {"Name": "西島麦南", "Romaji": "Nishijima Bakunan", "English": "Nishijima Bakunan", "Birth-Death": "1895－1981", "Period": "", "Image": "./images/Nishijima Bakunan.jpg"},
     {"Name": "富田 木歩", "Romaji": "Tomita Moppo", "English": "Tomita Moppo", "Birth-Death": "1897 – 1923", "Period": "", "Image": "./images/Tomita Moppo.jpg"},
-    {"Name": "川端茅舎", "Romaji": "Kawabata Bosha",
+    {"Name": "川端茅舎", "Romaji": "Kawabata Bosha", "English": "Kawabata Bosha", "Birth-Death": "1897-1941", "Period": "", "Image": "./images/Kawabata Bosha.jpg"}
+];
