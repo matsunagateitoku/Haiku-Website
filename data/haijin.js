@@ -1,5 +1,5 @@
 const poets = [
-    {"Name": "宗鑑", "Romaji": "Yamazaki Sōkan", "English": "Yamazaki Sokan", "Birth-Death": "?-d. 1539-41", "Period": "1. Muromachi", "Image": "./images/Yamazaki Sokan.jpg},
+    {"Name": "宗鑑", "Romaji": "Yamazaki Sōkan", "English": "Yamazaki Sokan", "Birth-Death": "?-d. 1539-41", "Period": "1. Muromachi", "Image": "./images/Yamazaki Sokan.jpg"},
     {"Name": "荒木田守武", "Romaji": "Arakida Moritake", "English": "Arakida Moritake", "Birth-Death": "1473 –1549", "Period": "1. Muromachi", "Image": "dummy link"},
     {"Name": "斎藤徳元", "Romaji": "Saitō Tokugin", "English": "Saito Tokugin", "Birth-Death": "1559 - 1647", "Period": "2. Teimon", "Image": "dummy link"},
     {"Name": "松永貞徳", "Romaji": "Matsunaga Teitoku", "English": "Matsunaga Teitoku", "Birth-Death": "1571-1654", "Period": "2. Teimon", "Image": "dummy link"},
