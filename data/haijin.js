@@ -24,7 +24,7 @@ const poets = [
     {"Name": "岸本調和", "Romaji": "Kishimoto Chōwa", "English": "Kishimoto Chowa", "Birth-Death": "1638 – 1715", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "大淀三千風", "Romaji": "Ōyodo Michikaze", "English": "oyodo Michikaze", "Birth-Death": "1639 – 1707", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "岡西惟中", "Romaji": "Okanishi Ichū", "English": "Okanishi Ichu", "Birth-Death": "1639 – 1711", "Period": "3. Danrin", "Image": "dummy link"},
-    {"Name": "井原西鶴", "Romaji": "Ihara Saikaku", "English": "Ihara Saikaku", "Birth-Death": "1642—1693", "Period": "3. Danrin", "Image": "./images/Ihara Saikaku.jpg""},
+    {"Name": "井原西鶴", "Romaji": "Ihara Saikaku", "English": "Ihara Saikaku", "Birth-Death": "1642—1693", "Period": "3. Danrin", "Image": "./images/Ihara Saikaku.jpg"},
     {"Name": "田中常矩", "Romaji": "Tanaka Tsunenori", "English": "Tanaka Tsunenori", "Birth-Death": "1643－1682", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "野口在色", "Romaji": "Noguchi Zaishiki", "English": "Noguchi Zaishiki", "Birth-Death": "1643－1719", "Period": "3. Danrin", "Image": "dummy link"},
     {"Name": "三井秋風", "Romaji": "Mitsui Shūfū", "English": "Mitsui Shufu", "Birth-Death": "1646 -- 1717", "Period": "3. Danrin", "Image": "dummy link"},
