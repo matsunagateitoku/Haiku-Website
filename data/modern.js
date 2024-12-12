@@ -8,7 +8,7 @@ const poets = [
     {"Name": "西山泊雲", "Romaji": "Nishiyama Hakuun", "English": "Nishiyama Hakuun", "Birth-Death": "1877-1944", "Period": "", "Image": "./images/Nishiyama Hakuun.jpg"},
     {"Name": "臼田 亞浪", "Romaji": "Usuda Arō", "English": "Usuda Arō", "Birth-Death": "1879 - 1951", "Period": "俳誌「石楠(しゃくなげ)」を創刊。新傾向と保守との中間派", "Image": "./images/Usuda Aro.jpg"},
     {"Name": "中塚一碧楼", "Romaji": "Nakatsuka Ippekirō", "English": "Nakatsuka Ippekirō", "Birth-Death": "1879-1946", "Period": "Free Rhythm, founder Sea Crimson", "Image": "./images/Nakatsuka Ippekiro.jpg"},
-    {"Name": "種田 山頭火", "Romaji": "Taneda Santōka", "English": "Taneda Santōka", "Birth-Death": "1882 - 1940", "Period": "Free Rhythm, Student of Seisensui", "Image": "./images/Taneda Sontoka.jpg"},
+    {"Name": "種田 山頭火", "Romaji": "Taneda Santōka", "English": "Taneda Santōka", "Birth-Death": "1882 - 1940", "Period": "Free Rhythm, Student of Seisensui", "Image": "./images/Taneda Santoka.jpg"},
     {"Name": "前田普羅", "Romaji": "Maeda Fura", "English": "Maeda Fura", "Birth-Death": "1884―1954", "Period": "Taisho Hototogisu", "Image": "./images/Maeda Fura.jpg"},
     {"Name": "荻原井泉水", "Romaji": "Ogiwara Seisensui", "English": "Ogiwara Seisensui", "Birth-Death": "1884―1976", "Period": "Nihon school→New Tendancy→Free Rhythm, Founder Sōun, Student of Hekigōtō, Teacher of Hōsai & Santōka", "Image": "./images/Ogiwara Seisensui.jpg"},
     {"Name": "富安風生", "Romaji": "Tomiyasu Fūsei", "English": "Tomiyasu Fūsei", "Birth-Death": "1885 - 1979", "Period": "Ashibi, student of Kyoshi", "Image": "./images/Tomiyasu Fusei.jpg"},
