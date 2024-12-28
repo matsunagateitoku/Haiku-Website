@@ -105,12 +105,19 @@
                 period.classList.add('period');
                 period.textContent = `Period: ${item.Period}`;
 
+                // Create an anchor element wrapping the image
+                const link = document.createElement('a');
+                link.href = item.PageURL; // Set the href to the URL you want to link to
+                link.target = "_blank"; // Optional: open the link in a new tab
+
                 const image = document.createElement('img'); // Create an img element
                 image.src = item.Image; // Set the src to the image path from your data
                 image.alt = "Poet's Image"; // Optional: set an alt attribute for accessibility
 
+                link.appendChild(image); // Append the image to the link
+
                 card.appendChild(name);
-                card.appendChild(image);
+                card.appendChild(link); // Append the link (with image inside) to the card
                 card.appendChild(romaji);
                 card.appendChild(english);
                 card.appendChild(birthDeath);
