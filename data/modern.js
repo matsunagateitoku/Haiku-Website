@@ -1,5 +1,5 @@
 const poets = [
-    {"Name": "正岡子規", "Romaji": "Masaoka Shiki", "English": "Masaoka Shiki", "Birth-Death": "1864―1902", "Period": "Founder of Nippon School", "Image": "./images/Masaoka Shiki.jpg", "PageURL": "Masaoka Shiki.txt"},
+    {"Name": "正岡子規", "Romaji": "Masaoka Shiki", "English": "Masaoka Shiki", "Birth-Death": "1864―1902", "Period": "Founder of Nippon School", "Image": "./images/Masaoka Shiki.jpg", "PageURL": "Masaoka_Shiki"},
     {"Name": "村上鬼城", "Romaji": "Murakami Kijō", "English": "Murakami Kijō", "Birth-Death": "1865―1938", "Period": "Hototogisu", "Image": "./images/Murakami Kijo.jpg", "PageURL": "../bios/Murakami Kijō.txt"},
     {"Name": "夏目漱石", "Romaji": "Natsume Soseki", "English": "Natsume Soseki", "Birth-Death": "1867―1916", "Period": "", "Image": "./images/Natsume Soseki.jpg", "PageURL": "../bios/Natsume Soseki.txt"},
     {"Name": "松瀬青々", "Romaji": "Matsuse Seisei", "English": "Matsuse Seisei", "Birth-Death": "1869 - 1937", "Period": "", "Image": "./images/Matsuse Seisei.jpg", "PageURL": "../bios/Matsuse Seisei.txt"},
