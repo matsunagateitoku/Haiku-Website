@@ -102,7 +102,7 @@ function generateCards(data) {
         
         // Create an anchor element wrapping the image
         const link = document.createElement('a');
-        link.href = `poet-bio.html?name=${encodeURIComponent(item.Name)}`; // Link to the bio page
+        link.href = `poet-bio.html?name=${encodeURIComponent(item.English)}`; // Link to the bio page
         link.target = "_blank"; // Optional: Open in a new tab when clicked
 
         const image = document.createElement('img');
