@@ -92,7 +92,7 @@
 
                 // Wrap the image in a link that opens the bio template page
                 const link = document.createElement('a');
-                link.href = `bio_template.html?file=${encodeURIComponent(item.PageURL)}`; // Pass the file name
+                link.href = `bio_template.html?file=${item.PageURL}`; // Pass the file name
                 link.target = "_blank";  // Open in a new tab
                 link.appendChild(image); // Append the image to the link
 
