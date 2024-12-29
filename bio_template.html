@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poet Bio</title>
+    <title>Poet Biography</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 20px;
         }
+
         .bio-container {
             max-width: 800px;
             margin: auto;
@@ -19,10 +20,12 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .bio-container h1 {
             font-size: 2em;
             margin-bottom: 20px;
         }
+
         .bio-container p {
             font-size: 1em;
             line-height: 1.6;
@@ -31,32 +34,32 @@
     </style>
 </head>
 <body>
-    <div class="bio-container">
-        <h1 id="poet-name"></h1>
-        <div id="bio-content"></div>
-    </div>
 
-    <script>
-        const basePath = '../bios/'; // Set base path for bios folder
+<div class="bio-container">
+    <h1 id="poet-name"></h1>
+    <div id="bio-content"></div>
+</div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const fileName = urlParams.get('file');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');  // Get the file name from the query parameter
 
-            if (fileName) {
-                const fullPath = `${basePath}${fileName}`;
-                
-                fetch(fullPath)
-                    .then(response => response.text())
-                    .then(text => {
-                        document.getElementById('poet-name').textContent = decodeURIComponent(fileName.replace(/_/g, ' ').replace('.txt', ''));
-                        document.getElementById('bio-content').innerHTML = text.replace(/\n/g, '<br>');
-                    })
-                    .catch(error => console.error('Error loading bio:', error));
-            } else {
-                document.getElementById('bio-content').textContent = 'No bio file specified.';
-            }
-        });
-    </script>
+        if (fileName) {
+            fetch(`../bios/${fileName}`)
+                .then(response => response.text())
+                .then(text => {
+                    // Extract the poet's name from the file name (optional, you can customize this logic)
+                    const poetName = decodeURIComponent(fileName.replace(/_/g, ' ').replace('.txt', ''));
+                    document.getElementById('poet-name').textContent = poetName; // Set poet name
+                    document.getElementById('bio-content').innerHTML = text.replace(/\n/g, '<br>'); // Show content
+                })
+                .catch(error => console.error('Error loading bio:', error));
+        } else {
+            document.getElementById('bio-content').textContent = 'No bio file specified.';
+        }
+    });
+</script>
+
 </body>
 </html>
