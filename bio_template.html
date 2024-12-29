@@ -58,7 +58,9 @@
     <script>
         // Get the poet's name from the URL (e.g., ?name=Masaoka%20Shiki)
         const urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams)
         const poetName = urlParams.get('name');
+        console.log(poetname)
 
         // Fetch the bio from the text file
         fetch(`../bios/${poetName}.txt`)
