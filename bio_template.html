@@ -37,15 +37,19 @@
     </div>
 
     <script>
+        const basePath = '/bios/'; // Set base path for bios folder
+
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const fileName = urlParams.get('file');
 
             if (fileName) {
-                fetch(`${fileName}`)
+                const fullPath = `${basePath}${fileName}`;
+                
+                fetch(fullPath)
                     .then(response => response.text())
                     .then(text => {
-                        document.getElementById('poet-name').textContent = decodeURIComponent(fileName.replace(/_/g, ' '));
+                        document.getElementById('poet-name').textContent = decodeURIComponent(fileName.replace(/_/g, ' ').replace('.txt', ''));
                         document.getElementById('bio-content').innerHTML = text.replace(/\n/g, '<br>');
                     })
                     .catch(error => console.error('Error loading bio:', error));
