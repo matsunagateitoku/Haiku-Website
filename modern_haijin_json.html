@@ -19,13 +19,12 @@
             align-items: flex-start;
         }
 
-        /* Use Grid for a flexible layout */
         #cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4-6 cards per row */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
             gap: 20px;
             width: 100%;
-            max-width: 1200px; /* Max width of the grid */
+            max-width: 1200px;
         }
 
         .card {
@@ -61,14 +60,13 @@
             color: #333;
         }
 
-        /* Style the image inside the card */
         .card img {
-            width: 100%;        /* Make the image take up the full width of the card */
-            height: 50%;       /* Maintain aspect ratio */
-            border-radius: 8px; /* Optional: rounded corners around the image */
-            border: 2px solid #ddd; /* Add a border around the image */
-            object-fit: cover;  /* Make sure the image covers the area without distortion */
-            margin-bottom: 15px; /* Add space below the image */
+            width: 100%;
+            height: 50%;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            object-fit: cover;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -77,12 +75,9 @@
 
     <script src="./data/modern.js"></script>
     <script>
-        // Function to generate cards based on data
         function generateCards(data) {
             const container = document.getElementById('cards-container');
-
-            // Clear any previous content
-            container.innerHTML = '';
+            container.innerHTML = '';  // Clear any previous content
 
             data.forEach(item => {
                 const card = document.createElement('div');
@@ -90,6 +85,16 @@
 
                 const name = document.createElement('h3');
                 name.textContent = item.Name || item.Romaji || item.English;
+
+                const image = document.createElement('img');
+                image.src = item.Image;
+                image.alt = `${item.Name}'s Image`;
+
+                // Wrap the image in a link that opens the bio template page
+                const link = document.createElement('a');
+                link.href = `bio_template.html?file=${encodeURIComponent(item.PageURL)}`; // Pass the file name
+                link.target = "_blank";  // Open in a new tab
+                link.appendChild(image); // Append the image to the link
 
                 const romaji = document.createElement('p');
                 romaji.textContent = `Romaji: ${item.Romaji}`;
@@ -105,19 +110,8 @@
                 period.classList.add('period');
                 period.textContent = `Period: ${item.Period}`;
 
-                // Create an anchor element wrapping the image
-                const link = document.createElement('a');
-                link.href = `bio_template.html?file=${encodeURIComponent(item.PageURL)}`; // Pass only the filename
-                link.target = "_blank"; // Optional: open the link in a new tab
-
-                const image = document.createElement('img'); // Create an img element
-                image.src = item.Image; // Set the src to the image path from your data
-                image.alt = "Poet's Image"; // Optional: set an alt attribute for accessibility
-
-                link.appendChild(image); // Append the image to the link
-
                 card.appendChild(name);
-                card.appendChild(link); // Append the link (with image inside) to the card
+                card.appendChild(link); // Append the link (image inside) to the card
                 card.appendChild(romaji);
                 card.appendChild(english);
                 card.appendChild(birthDeath);
@@ -127,13 +121,9 @@
             });
         }
 
-        // Check if the poets data is loaded properly
-        console.log("Loading poets data...");
+        // Assuming 'poets' data is available from the modern.js file
         if (typeof poets !== "undefined") {
-            console.log("Poets data found:", poets);
             generateCards(poets);
-        } else {
-            console.error("Error: Poets data not found. Make sure modern.js is loaded correctly.");
         }
     </script>
 </body>
