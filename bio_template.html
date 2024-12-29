@@ -42,7 +42,7 @@
             const fileName = urlParams.get('file');
 
             if (fileName) {
-                fetch(`./bios/${fileName}.txt`)
+                fetch(`../bios/${fileName}.txt`)
                     .then(response => response.text())
                     .then(text => {
                         document.getElementById('poet-name').textContent = decodeURIComponent(fileName.replace(/_/g, ' '));
