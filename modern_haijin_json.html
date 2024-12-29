@@ -101,7 +101,7 @@
                 birthDeath.textContent = `Birth-Death: ${item['Birth-Death']}`;
                 
         // Create an anchor element wrapping the image
-        let link = document.createElement('a'); // Declare the link variable
+        const link = document.createElement('a'); // Declare the link variable
         link.href = `poet-bio.html?name=${encodeURIComponent(item.Name)}`; // Link to the bio page
 
         const image = document.createElement('img'); // Create an img element
