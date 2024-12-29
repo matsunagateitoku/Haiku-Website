@@ -107,7 +107,7 @@
 
                 // Create an anchor element wrapping the image
                 const link = document.createElement('a');
-                link.href = `./bios/${item.PageURL}`; // Set the href to the URL in the bios folder
+                link.href = `bio_template.html?file=${item.PageURL}`; // Set the href to the template HTML page
                 link.target = "_blank"; // Optional: open the link in a new tab
 
                 const image = document.createElement('img'); // Create an img element
