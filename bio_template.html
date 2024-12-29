@@ -3,63 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poet Biography</title>
+    <title>Poet's Bio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
-
+        
         .bio-container {
+            width: 100%;
             max-width: 800px;
-            margin: auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .bio-container h1 {
+        h1 {
             font-size: 2em;
             margin-bottom: 20px;
         }
 
-        .bio-container p {
-            font-size: 1em;
+        .bio-content {
+            font-size: 1.1em;
             line-height: 1.6;
-            color: #555;
+            color: #333;
+        }
+
+        .bio-content p {
+            margin-bottom: 10px;
+        }
+
+        .bio-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
+    <div class="bio-container">
+        <h1 id="poet-name">Poet's Name</h1>
+        <div class="bio-content" id="bio-content">
+            <!-- Content of the bio will go here -->
+        </div>
+    </div>
 
-<div class="bio-container">
-    <h1 id="poet-name"></h1>
-    <div id="bio-content"></div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        // Get the poet's name from the URL (e.g., ?name=Masaoka%20Shiki)
         const urlParams = new URLSearchParams(window.location.search);
-        const fileName = urlParams.get('file');  // Get the file name from the query parameter
+        const poetName = urlParams.get('name');
 
-        if (fileName) {
-            fetch(`../bios/${fileName}`)
-                .then(response => response.text())
-                .then(text => {
-                    // Extract the poet's name from the file name (optional, you can customize this logic)
-                    const poetName = decodeURIComponent(fileName.replace(/_/g, ' ').replace('.txt', ''));
-                    document.getElementById('poet-name').textContent = poetName; // Set poet name
-                    document.getElementById('bio-content').innerHTML = text.replace(/\n/g, '<br>'); // Show content
-                })
-                .catch(error => console.error('Error loading bio:', error));
-        } else {
-            document.getElementById('bio-content').textContent = 'No bio file specified.';
+        // Fetch the bio from the text file
+        fetch(`../bios/${poetName}.txt`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('poet-name').textContent = poetName.replace(/_/g, " ");
+                document.getElementById('bio-content').innerHTML = formatBio(data);
+            })
+            .catch(error => {
+                console.error('Error loading bio:', error);
+                document.getElementById('bio-content').textContent = 'Sorry, the bio could not be loaded.';
+            });
+
+        // Format the bio content (you can adjust this to match your text formatting)
+        function formatBio(text) {
+            // Split by paragraphs (assuming each paragraph is separated by a newline)
+            const paragraphs = text.split('\n').filter(p => p.trim().length > 0);
+            return paragraphs.map(p => `<p>${p}</p>`).join('');
         }
-    });
-</script>
-
+    </script>
 </body>
 </html>
