@@ -60,7 +60,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         console.log(urlParams)
         const poetName = urlParams.get('name');
-        console.log(poetname)
+        console.log(poetName)
 
         // Fetch the bio from the text file
         fetch(`../bios/${poetName}.txt`)
