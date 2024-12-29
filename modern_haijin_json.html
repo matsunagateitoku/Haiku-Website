@@ -75,56 +75,62 @@
 
     <script src="./data/modern.js"></script>
     <script>
-        function generateCards(data) {
-            const container = document.getElementById('cards-container');
-            container.innerHTML = '';  // Clear any previous content
+function generateCards(data) {
+    const container = document.getElementById('cards-container');
+    container.innerHTML = '';  // Clear any previous content
 
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.classList.add('card');
+    data.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('card');
 
-                const name = document.createElement('h3');
-                name.textContent = item.Name || item.Romaji || item.English;
+        const name = document.createElement('h3');
+        name.textContent = item.Name || item.Romaji || item.English;
 
-                const romaji = document.createElement('p');
-                romaji.textContent = `Romaji: ${item.Romaji}`;
+        const romaji = document.createElement('p');
+        romaji.textContent = `Romaji: ${item.Romaji}`;
 
-                const english = document.createElement('p');
-                english.textContent = `English: ${item.English}`;
+        const english = document.createElement('p');
+        english.textContent = `English: ${item.English}`;
 
-                const period = document.createElement('p');
-                period.classList.add('period');
-                period.textContent = `Period: ${item.Period}`;
+        const period = document.createElement('p');
+        period.classList.add('period');
+        period.textContent = `Period: ${item.Period}`;
 
-                const birthDeath = document.createElement('p');
-                birthDeath.classList.add('birth-death');
-                birthDeath.textContent = `Birth-Death: ${item['Birth-Death']}`;
-                
+        const birthDeath = document.createElement('p');
+        birthDeath.classList.add('birth-death');
+        birthDeath.textContent = `Birth-Death: ${item['Birth-Death']}`;
+        
         // Create an anchor element wrapping the image
-        const link = document.createElement('a'); // Declare the link variable
+        const link = document.createElement('a');
         link.href = `poet-bio.html?name=${encodeURIComponent(item.Name)}`; // Link to the bio page
+        link.target = "_blank"; // Optional: Open in a new tab when clicked
 
-        const image = document.createElement('img'); // Create an img element
-        image.src = item.Image; // Set the src to the image path from your data
-        image.alt = "Poet's Image"; // Optional: set an alt attribute for accessibility
+        const image = document.createElement('img');
+        image.src = item.Image;
+        image.alt = "Poet's Image"; // Alt attribute for accessibility
 
-                    //  const image = document.createElement('img');
-              //  image.src = item.Image;
-             //   image.alt = `${item.Name}'s Image`;
+        link.appendChild(image);  // Append the image to the link
+
+        card.appendChild(name);
+        card.appendChild(link); // Append the link (with image inside) to the card
+        card.appendChild(romaji);
+        card.appendChild(english);
+        card.appendChild(birthDeath);
+        card.appendChild(period);
+
+        container.appendChild(card);
+    });
+}
 
 
 
-                card.appendChild(name);
-                card.appendChild(image);
-                card.appendChild(link); // Append the link (image inside) to the card
-                card.appendChild(romaji);
-                card.appendChild(english);
-                card.appendChild(birthDeath);
-                card.appendChild(period);
-            
-                container.appendChild(card);
-            });
-        }
+
+
+
+
+
+
+
 
         // Assuming 'poets' data is available from the modern.js file
         if (typeof poets !== "undefined") {
