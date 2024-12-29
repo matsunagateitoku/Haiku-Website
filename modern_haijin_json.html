@@ -107,7 +107,7 @@
 
                 // Create an anchor element wrapping the image
                 const link = document.createElement('a');
-                link.href = `bio_template.html?file=${item.PageURL}`; // Set the href to the template HTML page
+                link.href = `bio_template.html?file=${encodeURIComponent(item.PageURL)}`; // Pass only the filename
                 link.target = "_blank"; // Optional: open the link in a new tab
 
                 const image = document.createElement('img'); // Create an img element
